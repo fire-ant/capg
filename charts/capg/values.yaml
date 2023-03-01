@@ -1,0 +1,14 @@
+controllerManager:
+  manager:
+    env:
+      googleApplicationCredentials: /home/.gcp/credentials.json
+    image:
+      repository: registry.k8s.io/cluster-api-gcp/cluster-api-gcp-controller
+      tag: v1.2.1
+  replicas: 1
+kubernetesClusterDomain: cluster.local
+webhookService:
+  ports:
+  - port: 443
+    targetPort: webhook-server
+  type: ClusterIP
